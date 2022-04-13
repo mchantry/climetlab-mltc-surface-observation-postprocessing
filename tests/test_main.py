@@ -12,10 +12,9 @@ import climetlab as cml
 def test_read():
     ds = cml.load_dataset(
         "mltc-surface-observation-postprocessing",
-        year="2021",
-        parameter="t2m",
+        field="soil_temperature",
     )
-    xds = ds.to_xarray()
+    xds = ds.to_pandas()
     print(xds)
 
 
