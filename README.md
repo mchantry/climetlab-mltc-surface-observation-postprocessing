@@ -6,18 +6,20 @@ A dataset plugin for climetlab for the dataset mltc-surface-observation-postproc
 Features
 --------
 
-In this README is a description of how to get the dataset(s) provided by the python package mltc_surface_observation_postprocessing.
+In this README is a description of how to get the dataset provided by the python package climetlab_mltc_surface_observation_postprocessing.
 
 ## Datasets description
 
-There are two datasets: 
+The dataset is designed for learning forecast errors of 2m-temperature from a weather forecasting model, using station observations as the truth. Currently there are 3 variables in the dataset. For each variable the dataset contains over 5 million datapoints covering a range of different locations (not specified).
 
-### 1 : `main`
-TODO: write documentation.
+### 1 : `field = forecast_error`
+The predictand for the problem, the difference between the forecasted value of 2m-temperature and the observed value, units degrees C (or equally Kelvin).
 
+### 2 : `field = time_of_day`
+Local time of day, in decimal hours. Useful for diagnosing the diurnal cycle model bias.
 
-### 2 : TODO
-No second dataset yet.
+### 3: `field = soil_temperature`
+Model soil temperature, units degrees C.
 
 
 ## Using climetlab to access the data
@@ -41,8 +43,8 @@ The climetlab python package allows easy access to the data with a few lines of 
 
 !pip install climetlab climetlab-mltc-surface-observation-postprocessing
 import climetlab as cml
-ds = cml.load_dataset("mltc-surface-observation-postprocessing", date="20201231")
-ds.to_xarray()
+ds = cml.load_dataset("mltc-surface-observation-postprocessing", field="forecast_error")
+ds.to_pandas()
 ```
 
 
@@ -65,6 +67,6 @@ nor does it submit to any jurisdiction.
 Authors
 -------
 
-Matthew Chantry and al.
+Matthew Chantry, Fenwick Cooper, Zied Ben Bouallegue, Peter Dueben
 
 See also the CONTRIBUTORS.md file.
