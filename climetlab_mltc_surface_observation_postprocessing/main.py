@@ -8,7 +8,6 @@
 from __future__ import annotations
 
 import climetlab as cml
-import pandas as pd
 from climetlab import Dataset
 from climetlab.decorators import normalize
 
@@ -20,7 +19,7 @@ PATTERN = "{url}/SOP/{field}.csv"
 
 
 class Main(Dataset):
-    name = "Station Observation Postprocessing dataset"
+    name = "Surface Observation Postprocessing dataset"
     home_page = "-"
     # The licence is the licence of the data (not the licence of the plugin)
     licence = "-"
@@ -43,9 +42,6 @@ class Main(Dataset):
     def __init__(self, field):
         request = dict(field=field, url=URL)
         self.source = cml.load_source("url-pattern", PATTERN, request)
-
-    def to_pandas(self):
-        return pd.read_csv(self.source.path)
 
     def to_numpy(self):
         return self.to_pandas().to_numpy()

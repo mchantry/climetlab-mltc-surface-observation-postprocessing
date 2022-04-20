@@ -44,7 +44,7 @@ setuptools.setup(
     license="Apache License Version 2.0",
     packages=setuptools.find_packages(),
     include_package_data=True,
-    install_requires=["climetlab>=0.10.0"],
+    install_requires=["climetlab>=0.11.6"],
     extras_require=extras_require,
     zip_safe=True,
     entry_points={
