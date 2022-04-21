@@ -1,4 +1,4 @@
-## climetlab-mltc_surface_observation_postprocessing
+## climetlab-mltc-surface-observation-postprocessing
 
 A dataset plugin for climetlab for the dataset mltc-surface-observation-postprocessing-main.
 
